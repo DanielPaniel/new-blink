@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Blink-element!</title>
+    <link rel="stylesheet" href="blink.css" />
+</head>
+<body>
+    
+    <main>
+        <section>
+            <h1>
+                <div class="sticker">New</div>
+                <new-blink>Blink!</new-blink>
+            </h1>
+            <p>I made my own version of the <new-blink>blink-tag</new-blink> as a custom element.</p>
+            <p>Use cases yet to be found.</p>
+            <p><a href="NewBlink.js"><new-blink>Get the element now!</new-blink></a></p>
+    
+            <aside class="box">
+                <h2>Features</h2>
+                <ul>
+                    <li>More settings than the original blink</li>
+                    <li>Annoying!</li>
+                    <li>Respects reduced-motion-setting</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h2>Demo</h2>
+            <p><new-blink>This content might also blink!</new-blink></p>
+            <fieldset class="box">
+                <legend>Try different blinks</legend>
+                <ul>
+                    <li>
+                        <input type="radio" id="default" name="blink-type" checked> 
+                        <label for="default">Default</label></li>
+                    <li>
+                        <input type="radio" id="fade" name="blink-type"> 
+                        <label for="fade">Fade</label></li>
+                    <li>
+                        <input type="radio" id="strobe" name="blink-type"> 
+                        <label for="strobe">Strobe</label></li>
+                    <li>
+                        <input type="radio" id="inactive" name="blink-type"> 
+                        <label for="inactive">Inactive</label></li>
+                    <li>
+                        <input type="radio" id="random" name="blink-type"> 
+                        <label for="random">Random</label></li>
+                </ul>
+            </fieldset>
+
+            <label for="example-usage">Example usage:</label>
+<textarea id="example-usage" class="box">
+<new-blink type="default">My blinking content!</new-blink>
+<script src="NewBlink.js"></script></textarea>
+        </section>
+        <section>
+            <h2>Credits</h2>
+            <p>Read about the original blink on 
+                <a href="https://developer.mozilla.org/en-US/docs/Glossary/blink_element">MDN</a>, 
+                or <a href="https://en.wikipedia.org/wiki/Blink_element">Wikipedia</a>.</p>
+            <p>Font credits for this page:<br>
+            Terminal Grotesque by Raphaël Bastide, with the contribution of Jérémy Landes. <a href="https://velvetyne.fr/fonts/terminal-grotesque/">Distributed by velvetyne.fr</a>.</p>
+        </section>
+
+    </main>
+    <script src="NewBlink.js"></script>
+    <script>
+        const inputs = document.querySelectorAll("input[type='radio']");
+        const blinks = document.querySelectorAll("new-blink");
+        inputs.forEach(input => {
+            input.addEventListener("input", () => {
+                blinks.forEach(el => el.type = input.id);
+            });
+        });
+    </script>
+</body>
+</html>

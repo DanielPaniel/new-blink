@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'Terminal grotesque';
+    font-weight: 400;
+    font-style: normal;
+    src: url(terminal-grotesque.ttf) format('truetype');
+}
+:root {
+    --layout-column: 33em;
+}
+body {
+    font-family: 'Terminal grotesque';
+    font-size: 20px;
+    line-height: 1.4;
+}
+main {
+    max-inline-size: var(--layout-column);
+    margin: 0 auto 5em;
+}
+section {
+    margin-block-end: 2em;
+}
+h1, h2, legend {
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 5rem;
+    display: inline-flex;
+    flex-flow: row wrap;
+    gap: .1em;
+    justify-content: center;
+    align-items: center;
+    margin-block: .5em .25em;
+    hyphens: auto;
+}
+h2 {
+    margin-block: 0 .25em;
+}
+p {
+    margin-block: .5em;
+}
+ul {
+    margin: 0;
+    padding-inline: 1em 0;
+    text-indent: .5em;
+    list-style-type: "👹";
+}
+ul:has(li input) {
+    list-style: none;
+    text-indent: 0;
+    padding: 0;
+    margin: 0;
+}
+
+textarea {
+    display: block;
+    font-size: 1rem;
+    inline-size: 100%;
+    min-block-size: 6em;
+    box-sizing: border-box;
+}
+
+
+new-blink {
+    font-family: 'Terminal grotesque';
+    background-color: aliceblue;
+    padding-inline: .25em;
+}
+.sticker {
+    --sticker-color-border: gold;
+    --sticker-color-background: gold;
+    --sticker-border-weight: .15em;
+    font-size: .5em;
+    text-transform: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--sticker-color-background);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    transform: rotateZ(-25deg);
+    padding: .25em;
+}
+.sticker::after, .sticker::before {
+    content: '';
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    inline-size: calc(100% + var(--sticker-border-weight));
+    block-size: calc(100% + var(--sticker-border-weight));
+    border-radius: 50%;
+    border: var(--sticker-border-weight) dotted var(--sticker-color-border);
+    animation: spin 40s linear infinite; 
+}
+.sticker::after {
+    --sticker-color-border: #fff;
+    animation-direction: reverse;
+    animation-duration: 45s;
+    inline-size: calc(100% + 2 * var(--sticker-border-weight));
+    block-size: calc(100% + 2 * var(--sticker-border-weight));
+}
+@media (prefers-reduced-motion) {
+    .sticker::after, .sticker::before {
+        animation: none;
+    }
+}
+@keyframes spin {
+    from {            
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.box {
+    padding: .75em;
+    border: none;
+    margin-block: 1em;
+}
+aside.box {
+    background-color: beige;
+    border-inline-start: .5em solid cadetblue;
+}
+fieldset.box {
+    background-color: lightpink;
+    border-inline-start: .5em solid salmon;
+}
+textarea.box {
+    background-color: peachpuff;
+    border-inline-start: .5em solid palevioletred;
+}
